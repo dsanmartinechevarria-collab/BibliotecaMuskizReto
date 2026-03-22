@@ -32,5 +32,26 @@ public class Genero {
     public void setedadMinima(int agemin){
         this.edadMinima=agemin;
     }
-
+    //toString()
+	@Override
+	public String toString() {
+		return "Genero [nombre=" + nombre + ", edadMinima=" + edadMinima + "]";
+	}
+    //hasCode y Equals
+	@Override
+	public int hashCode() {
+		return Objects.hash(edadMinima, nombre);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Genero other = (Genero) obj;
+		return edadMinima == other.edadMinima && Objects.equals(nombre, other.nombre);
+	}
+	
 }
