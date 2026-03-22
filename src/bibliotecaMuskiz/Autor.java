@@ -62,4 +62,27 @@ public class Autor {
     public void seteditorial(String edit){
         this.editorial=edit;
     }
+        //toString()
+	@Override
+	public String toString() {
+		return "Autor [nombre=" + nombre + ", codigo=" + codigo + ", edad=" + edad + ", genero=" + genero
+				+ ", editorial=" + editorial + "]";
+    }
+    	//hasCode y Equals
+	@Override
+	public int hashCode() {
+		return Objects.hash(codigo, edad, editorial, genero, nombre);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Autor other = (Autor) obj;
+		return codigo == other.codigo && edad == other.edad && Objects.equals(editorial, other.editorial)
+				&& Objects.equals(genero, other.genero) && Objects.equals(nombre, other.nombre);
+	}
 }
