@@ -43,4 +43,27 @@ public class Penalizaciones {
     public void setusuario(Usuario usu){
         this.usuario=usu;
     }
+        //toString()
+	@Override
+	public String toString() {
+		return "Penalizaciones [gravedad=" + gravedad + ", numpena=" + numpena + ", usuario=" + usuario + "]";
+	}
+    //hasCode y Equals
+	@Override
+	public int hashCode() {
+		return Objects.hash(gravedad, numpena, usuario);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Penalizaciones other = (Penalizaciones) obj;
+		return Objects.equals(gravedad, other.gravedad) && numpena == other.numpena
+				&& Objects.equals(usuario, other.usuario);
+	}
+	
 }
