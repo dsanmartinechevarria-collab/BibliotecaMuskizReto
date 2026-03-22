@@ -42,4 +42,25 @@ public class Ejemplares {
     public void setgenero(Genero gen){
         this.genero=gen;
     }
+    //toString()
+    	@Override
+	public String toString() {
+		return "Ejemplares [libro=" + libro + ", codigo=" + codigo + ", genero=" + genero + "]";
+	}
+    	//hasCode y Equals
+	@Override
+	public int hashCode() {
+		return Objects.hash(codigo, genero, libro);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Ejemplares other = (Ejemplares) obj;
+		return codigo == other.codigo && Objects.equals(genero, other.genero) && Objects.equals(libro, other.libro);
+	}
 }
