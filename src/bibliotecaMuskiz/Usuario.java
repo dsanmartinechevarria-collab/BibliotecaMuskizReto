@@ -52,4 +52,28 @@ public class Usuario {
     public void setgenero(Genero gen){
         this.generofav=gen;
     }
+        //toString()
+	@Override
+	public String toString() {
+		return "Usuario [nombre=" + nombre + ", edad=" + edad + ", numpenalizacion=" + numpenalizacion + ", generofav="
+				+ generofav + "]";
+	}
+    //hasCode y Equals
+	@Override
+	public int hashCode() {
+		return Objects.hash(edad, generofav, nombre, numpenalizacion);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Usuario other = (Usuario) obj;
+		return edad == other.edad && Objects.equals(generofav, other.generofav) && Objects.equals(nombre, other.nombre)
+				&& numpenalizacion == other.numpenalizacion;
+	}
+	
 }
