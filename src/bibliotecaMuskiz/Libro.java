@@ -72,4 +72,29 @@ public class Libro {
     public void setgenero(Genero gen){
         this.genero=gen;
     }
+        //toString()
+	@Override
+	public String toString() {
+		return "Libro [titulo=" + titulo + ", codigo=" + codigo + ", autor=" + autor + ", numeroPaginas="
+				+ numeroPaginas + ", editorial=" + editorial + ", genero=" + genero + "]";
+	}
+    //hasCode y Equals
+	@Override
+	public int hashCode() {
+		return Objects.hash(autor, codigo, editorial, genero, numeroPaginas, titulo);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Libro other = (Libro) obj;
+		return Objects.equals(autor, other.autor) && codigo == other.codigo
+				&& Objects.equals(editorial, other.editorial) && Objects.equals(genero, other.genero)
+				&& numeroPaginas == other.numeroPaginas && Objects.equals(titulo, other.titulo);
+	}
+	
 }
